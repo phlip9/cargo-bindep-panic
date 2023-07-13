@@ -4,9 +4,9 @@ resolver = "2"
 members = [
     "top-level-that-depends-on-bindep",
     # |
-    # | [dependencies] artifact = "bin"
-    # |            - or -
-    # | [build-dependencies] artifact = "bin"
+    # | [dependencies] artifact = "bin", target = "x86_64-fortanix-unknown-sgx"
+    # |     - or -
+    # | [build-dependencies] artifact = "bin", target = "x86_64-fortanix-unknown-sgx"
     # V
     "will-get-bindeped",
     # |
