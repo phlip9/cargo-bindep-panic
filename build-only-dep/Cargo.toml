@@ -1,0 +1,16 @@
+[package]
+name = "build-only-dep"
+version = "0.1.0"
+edition = "2021"
+
+# [dependencies]
+# errno = "0.3" # FAIL
+# filetime = "0.2" # FAIL
+# libc = "0.2" # SUCCESS????
+
+# This target specifier seems important--the build succeeds if this is just
+# a normal, unconstrained dependency...
+[target.'cfg(unix)'.dependencies]
+# libc = "0.2" # FAIL
+# spin = "0.5" # FAIL
+some-leaf-dep = { path = "../some-leaf-dep" }

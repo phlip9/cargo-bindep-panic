@@ -1,0 +1,16 @@
+[package]
+name = "will-get-bindeped"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+dep-that-depends-on-build-only-dep = { path = "../dep-that-depends-on-build-only-dep" } # FAIL
+# aesm-client = { version = "0.5.4", default-features = false } # FAIL
+
+# The original, problematic crate. It runs a protobuf compiler at build-time.
+# vvvvvvvvvvv
+# aesm-client = { version = "=0.5.4", git = "https://github.com/lexe-tech/rust-sgx", branch = "lexe", default-features = false, features = ["sgxs"] } # FAIL
+
+# [build-dependencies]
+# rustix = "=0.36.8" # SUCCESS
+# tempfile = "=3.4.0" # SUCCESS

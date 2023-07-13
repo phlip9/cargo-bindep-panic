@@ -1,0 +1,8 @@
+[toolchain]
+channel = "nightly-2023-07-11"
+# components = ["clippy", "rustfmt"]
+targets = [
+    "x86_64-fortanix-unknown-sgx", # FAIL (this should probably fail regardless of host?)
+    # "x86_64-unknown-linux-gnu", # FAIL (host is macOS; not sure if that makes a difference)
+]
+profile = "minimal"

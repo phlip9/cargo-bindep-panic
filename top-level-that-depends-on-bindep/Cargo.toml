@@ -1,0 +1,14 @@
+[package]
+name = "top-level-that-depends-on-bindep"
+version = "0.1.0"
+edition = "2021"
+
+# NOTE:
+# `will-get-bindeped` in either [dependencies] or [build-dependencies] will panic
+
+# [dependencies]
+# will-get-bindeped = { path = "../will-get-bindeped", artifact = "bin", target = "x86_64-fortanix-unknown-sgx" } # FAIL
+
+[build-dependencies]
+will-get-bindeped = { path = "../will-get-bindeped", artifact = "bin", target = "x86_64-fortanix-unknown-sgx" } # FAIL
+# will-get-bindeped = { path = "../will-get-bindeped", artifact = "bin", target = "x86_64-unknown-linux-gnu" } # FAIL

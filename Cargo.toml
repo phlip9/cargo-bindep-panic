@@ -1,0 +1,24 @@
+[workspace]
+resolver = "2"
+
+members = [
+    "top-level-that-depends-on-bindep",
+    # |
+    # | [dependencies] artifact = "bin"
+    # |            - or -
+    # | [build-dependencies] artifact = "bin"
+    # V
+    "will-get-bindeped",
+    # |
+    # | [dependencies]
+    # V
+    "dep-that-depends-on-build-only-dep",
+    # |
+    # | [build-dependencies]
+    # V
+    "build-only-dep",
+    # |
+    # | [target.'cfg(unix)'.dependencies]
+    # V
+    "some-leaf-dep",
+]

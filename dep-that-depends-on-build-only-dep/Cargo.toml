@@ -1,0 +1,16 @@
+[package]
+name = "dep-that-depends-on-build-only-dep"
+version = "0.1.0"
+edition = "2021"
+
+# This crate has some build-time dependencies that seem to confuse cargo when
+# combined with the bindeps feature
+
+[build-dependencies]
+# protoc-rust = "2.8.0" # FAIL
+# tempfile = "3" # FAIL
+# errno = "0.3" # FAIL
+# filetime = "0.2" # FAIL
+# libc = "0.2" # SUCCESS
+# rustix = "0.37.23" # SUCCESS
+build-only-dep = { path = "../build-only-dep" } # FAIL (minimized)
